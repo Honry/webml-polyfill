@@ -887,7 +887,13 @@ class BaseExample extends BaseApp {
       // UI shows compiling model progress, includes warm up model
       await showProgressComponent('done', 'current', 'pending');
       // Compile model
+      // console.time("Model compilation");
+      // const modelCompilation = performance.now();
+      console.time('Model compilation')
+      compileTime = performance.now();
       await this._compileModel();
+      //consoleTime.push(performance.now() - modelCompilation);
+      //console.timeEnd("Model compilation");
       if (this._currentFramework === 'WebNN') {
         const requiredOps = this._getRequiredOps();
         // show offload ops info
@@ -907,7 +913,11 @@ class BaseExample extends BaseApp {
           if (this._track != null) {
             this._track.stop();
           }
+          console.time("Model inferencing");
+          const modelInferencing = performance.now();
           await this._predict();
+          consoleTime.push(performance.now() - modelInferencing);
+          console.timeEnd("Model inferencing");
           await showProgressComponent('done', 'done', 'done'); // 'COMPLETED_INFERENCE'
           readyShowResultComponents();
           break;

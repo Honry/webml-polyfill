@@ -270,9 +270,12 @@ class BaseRunner {
    */
   run = async (input) => {
     await this._getInputTensor(input);
+    console.time("Real inference time");
     const start = performance.now();
     await this._doInference();
     const delta = performance.now() - start;
+    console.timeEnd("Real inference time");
+    consoleTime.push(delta);
     this._setInferenceTime(delta);
     console.log(`Compute Time: [${delta} ms]`);
   };

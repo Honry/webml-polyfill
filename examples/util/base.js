@@ -7,6 +7,9 @@ if (navigator.ml.isPolyfill) {
   nnPolyfill = navigator.ml_polyfill.getNeuralNetworkContext();
 }
 
+let consoleTime = [];
+let compileTime;
+
 const getOS = () => {
   const userAgent = window.navigator.userAgent;
   const platform = window.navigator.platform;

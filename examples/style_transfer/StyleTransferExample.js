@@ -133,6 +133,46 @@ class StyleTransferExample extends BaseCameraExample {
       $(e.target).parent().addClass('hl');
       this.main();
     });
+    $("#canned").click(async () => {
+      async function delayMs(ms) {
+        return new Promise(function(resolve, rejext) {
+          setTimeout(function() {
+              resolve('1')
+          }, ms);
+        });
+      }
+      consoleTime = [];
+      $('#query').attr
+      this._setBackend('WebGL');
+      this._setModelId('fast_style_transfer_tflite');
+     // window.history.pushState(null, null, '?prefer=none&b=WebGL&m=fast_style_transfer_tflite&s=image&d=0&f=WebNN');
+      let styles = $("#gallery .gallery-image");
+      console.time('cycleRun')
+      for(let i=0; i<styles.length; i++) {
+        let modelId = styles[i].id;
+        let model = getModelById(this.stModels, modelId);
+        if (model != null) {
+          if (this._currentModelInfo.format == 'TFLite' && model.tfliteModel != null)
+            this._currentModelInfo.modelFile = model.tfliteModel;
+          else if (this._currentModelInfo.format == 'ONNX' && model.onnxModel != null)
+            this._currentModelInfo.modelFile = model.onnxModel;
+        } else {
+          throw new Error('Unrecorgnized model, please check your model list.');
+        }
+        let stname = $('#' + modelId).attr('title');
+        let text = `<div class="vg">
+        <div>the painting style of <span>Van Gogh<span></div><br>
+        <strong>${stname}</strong>
+        </div>`;
+        $('#stname').html(text);
+        $("#gallery .gallery-item").removeClass('hl');
+        $(`#${modelId}`).parent().addClass('hl');
+        await this.main();
+        await delayMs(300);
+      }
+      console.timeEnd('cycleRun')
+      console.log('console.time:', consoleTime);
+    });
   };
 }
 

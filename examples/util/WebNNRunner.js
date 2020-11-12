@@ -84,6 +84,8 @@ class WebNNRunner extends BaseRunner {
     if (url !== undefined) {
       const arrayBuffer = await this._loadURL(url, this._progressHandler, true);
       const bytes = new Uint8Array(arrayBuffer);
+      console.time("Model loading");
+      const modelLoading = performance.now();
       switch (url.split('.').pop()) {
         case 'tflite':
           const flatBuffer = new flatbuffers.ByteBuffer(bytes);
@@ -123,6 +125,8 @@ class WebNNRunner extends BaseRunner {
         default:
           throw new Error(`Unrecognized model format, support TFLite | ONNX | OpenVINO model`);
       }
+      consoleTime.push(performance.now() - modelLoading);
+      console.timeEnd("Model loading");
     } else {
       throw new Error(`There's none model file info, please check config info of modelZoo.`);
     }
@@ -254,7 +258,9 @@ class WebNNRunner extends BaseRunner {
     await this._model.createCompiledModel();
 
     this._saveDetails();
-    this._doWarmup();
+    consoleTime.push(performance.now() - compileTime);
+     console.timeEnd('Model compilation');
+     await this._doWarmup();
   };
 
   /**
