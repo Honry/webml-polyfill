@@ -5,41 +5,41 @@ class StyleTransferExample extends BaseCameraExample {
     this.maxHeight = 380;
     this.stModels = [{
         modelId: 'starry-night',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/starry-night.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/starry-night.onnx'
+        tfliteModel: './model/starry-night.tflite',
+        onnxModel: './model/starry-night.onnx'
       }, {
         modelId: 'self-portrait',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/self-portrait.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/self-portrait.onnx'
+        tfliteModel: './model/self-portrait.tflite',
+        onnxModel: './model/self-portrait.onnx'
       }, {
         modelId: 'bedroom',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/bedroom.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/bedroom.onnx'
+        tfliteModel: './model/bedroom.tflite',
+        onnxModel: './model/bedroom.onnx'
         
       }, {
         modelId: 'sunflowers-bew',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/sunflowers-bew.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/sunflowers-bew.onnx'
+        tfliteModel: './model/sunflowers-bew.tflite',
+        onnxModel: './model/sunflowers-bew.onnx'
       }, {
         modelId: 'red-vineyards',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/red-vineyards.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/red-vineyards.onnx'
+        tfliteModel: './model/red-vineyards.tflite',
+        onnxModel: './model/red-vineyards.onnx'
       }, {
         modelId: 'sien_with_a_cigar',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/sien_with_a_cigar.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/sien_with_a_cigar.onnx'
+        tfliteModel: './model/sien_with_a_cigar.tflite',
+        onnxModel: './model/sien_with_a_cigar.onnx'
       }, {
         modelId: 'soup-distribution',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/soup-distribution.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/soup-distribution.onnx'
+        tfliteModel: './model/soup-distribution.tflite',
+        onnxModel: './model/soup-distribution.onnx'
       }, {
         modelId: 'wheatfield_with_crows',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/wheatfield_with_crows.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/wheatfield_with_crows.onnx'
+        tfliteModel: './model/wheatfield_with_crows.tflite',
+        onnxModel: './model/wheatfield_with_crows.onnx'
       }, {
         modelId: 'la-campesinos',
-        tfliteModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/la-campesinos.tflite',
-        onnxModel: 'https://d3i5xkfad89fac.cloudfront.net/style_transfer/model/la-campesinos.onnx'
+        tfliteModel: './model/la-campesinos.tflite',
+        onnxModel: './model/la-campesinos.onnx'
       }];
   }
 
